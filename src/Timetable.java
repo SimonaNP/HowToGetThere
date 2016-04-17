@@ -12,8 +12,13 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JComboBox;
-import javax.swing.ImageIcon;
+import javax.swing.JMenuBar;
+import java.awt.event.MouseWheelListener;
+import java.awt.event.MouseWheelEvent;
 import javax.swing.DefaultComboBoxModel;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
+import com.toedter.components.JLocaleChooser;
+import com.toedter.components.JSpinField;
 
 public class Timetable extends JFrame {
 
@@ -46,29 +51,59 @@ public class Timetable extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblMap = new JLabel("");
-		lblMap.setIcon(new ImageIcon("C:\\Users\\PC1\\Documents\\HowToGetThere\\src\\resource\\map.PNG"));
-		lblMap.setBorder(new LineBorder(new Color(0, 0, 0)));
+		JLabel lblMap = new JLabel("MAP");
+		lblMap.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		lblMap.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblMap.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMap.setBounds(10, 50, 521, 604);
+		lblMap.setBounds(40, 27, 537, 604);
 		contentPane.add(lblMap);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"blq", "blqq", "blqqqwe"}));
 		comboBox.setToolTipText("");
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"\u041D\u0410\u0427\u0410\u041B\u041D\u0410 \u0421\u041F\u0418\u0420\u041A\u0410", "\u0411\u043B\u043E\u043A 26", "\u0411\u043B\u043E\u043A 41", "\u041F\u0430\u0437\u0430\u0440\u0447\u0435", "\u0421\u0442\u0435\u0444\u0430\u043B", "\u0413\u0430\u0432\u0440\u0438\u043B \u0413\u0435\u043D\u043E\u0432", "\u0421\u0442\u0430\u0440 \u043F\u0430\u0437\u0430\u0440", "\u0411\u043B\u0430\u0433\u043E\u0435\u0432", "\u0421\u0443\u043C\u0438", "\u041A\u043E\u0441\u043C\u043E\u0441", "\u0410\u0445\u0430\u0442", "\u0411\u043E\u043B\u043D\u0438\u0446\u0430\u0442\u0430", "OMV", "\u041C\u0435\u0434\u043A\u043E\u0432\u0435\u0446", "\u0422\u0435\u0445\u043D\u043E\u043F\u043E\u043B\u0438\u0441", "\u0425\u0438\u043C\u043A\u043E"}));
-		comboBox.setBounds(851, 64, 139, 37);
+		comboBox.setBounds(642, 391, 139, 37);
+		
 		contentPane.add(comboBox);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"\u041A\u0420\u0410\u0419\u041D\u0410 \u0421\u041F\u0418\u0420\u041A\u0410", "\u0411\u043B\u043E\u043A 26", "\u0411\u043B\u043E\u043A 41", "\u041F\u0430\u0437\u0430\u0440\u0447\u0435", "\u0421\u0442\u0435\u0444\u0430\u043B", "\u0413\u0430\u0432\u0440\u0438\u043B \u0413\u0435\u043D\u043E\u0432", "\u0421\u0442\u0430\u0440 \u043F\u0430\u0437\u0430\u0440", "\u0411\u043B\u0430\u0433\u043E\u0435\u0432", "\u0421\u0443\u043C\u0438", "\u041A\u043E\u0441\u043C\u043E\u0441", "\u0410\u0445\u0430\u0442", "\u0411\u043E\u043B\u043D\u0438\u0446\u0430\u0442\u0430", "OMV", "\u041C\u0435\u0434\u043A\u043E\u0432\u0435\u0446", "\u0422\u0435\u0445\u043D\u043E\u043F\u043E\u043B\u0438\u0441", "\u0425\u0438\u043C\u043A\u043E"}));
-		comboBox_1.setBounds(851, 137, 139, 37);
+		comboBox_1.setBounds(868, 391, 139, 37);
 		contentPane.add(comboBox_1);
 		
+		JLabel label = new JLabel("");
+		label.setBounds(657, 401, 56, 16);
+		contentPane.add(label);
+		
+		JLabel label_1 = DefaultComponentFactory.getInstance().createLabel("");
+		label_1.setBounds(763, 149, 110, 16);
+		contentPane.add(label_1);
+		
 		JDayChooser dayChooser = new JDayChooser();
-		dayChooser.setBounds(632, 64, 119, 133);
+		dayChooser.setBounds(709, 81, 208, 218);
 		contentPane.add(dayChooser);
+		
+		JMonthChooser monthChooser = new JMonthChooser();
+		monthChooser.setBounds(929, 83, 112, 22);
+		contentPane.add(monthChooser);
+		
+		JLocaleChooser localeChooser = new JLocaleChooser();
+		localeChooser.setBounds(681, 48, 252, 22);
+		contentPane.add(localeChooser);
+		
+		JCalendar calendar = new JCalendar();
+		calendar.setBounds(737, 461, 163, 155);
+		contentPane.add(calendar);
+		
+		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.setBounds(944, 143, 93, 22);
+		contentPane.add(dateChooser);
+		
+		JSpinField spinField = new JSpinField();
+		spinField.setBounds(977, 206, 30, 22);
+		contentPane.add(spinField);
+		
+		JYearChooser yearChooser = new JYearChooser();
+		yearChooser.setBounds(956, 256, 51, 22);
+		contentPane.add(yearChooser);
 		
 	        }
 	}
-
